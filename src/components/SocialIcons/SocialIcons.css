@@ -1,0 +1,34 @@
+.social-button {
+  height: 2.5rem;
+  width: 2.5rem;
+  background-color: var(--primary-color);
+  color: #fff;
+  border-radius: 50%;
+  border: none;
+  margin-right: 0.5rem;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.social-button:focus,
+.social-button:hover {
+  outline: none;
+  background-color: var(--secondary-color);
+  color: #fff;
+}
+
+/* X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 992px) {
+  .social-buttons {
+    width: 100%;
+  }
+
+  .social-button {
+    height: 3rem;
+    width: 3rem;
+    margin-right: 1.5rem;
+  }
+
+  .social-button:last-child {
+    margin-right: 0;
+  }
+}

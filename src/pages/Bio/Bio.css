@@ -1,0 +1,23 @@
+.section-bio {
+  border-radius: 0.8rem;
+  width: 100%;
+}
+
+.section-bio-title {
+  color: var(--dark-color);
+}
+
+.section-bio-list > li::marker {
+  color: var(--secondary-color);
+}
+
+.section-bio-skill {
+  background-color: var(--secondary-color);
+}
+
+/* Large devices (large desktops, 992px and up) */
+@media (min-width: 992px) {
+  .section-bio {
+    width: 70%;
+  }
+}

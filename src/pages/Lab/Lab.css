@@ -1,0 +1,12 @@
+.lab-page-filters {
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+/* Large devices (large desktops, 992px and up) */
+@media (min-width: 992px) {
+  .lab-page-filters {
+    margin-bottom: 2rem;
+    width: 70%;
+  }
+}

@@ -1,0 +1,12 @@
+.contact-page {
+  margin-top: 20%;
+  color: var(--secondary-color);
+  padding: 3rem;
+  border-radius: 0.8rem;
+  background-color: var(--dark-color);
+}
+
+.contact-page h2 {
+  color: var(--light-color);
+}
+
