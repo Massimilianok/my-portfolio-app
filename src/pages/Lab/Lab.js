@@ -14,7 +14,7 @@ const Lab = () => {
 
   useEffect(() => {
     setLoader(true);
-    fetch('https://us-central1-my-portfolio-7def9.cloudfunctions.net/app/repos')
+    fetch(process.env.REACT_APP_URL_API)
       .then((res) => {
         if (res.ok) {
           return res.json();
