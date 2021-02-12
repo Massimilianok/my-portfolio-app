@@ -17,9 +17,9 @@ My portfolio project contains a summary of my career as a front end developer an
 - react-router-dom
 - bootstrap
 
-## Third party API
+## API
 
-- GitHub API
+- [`my-portfolio-api`](https://github.com/Massimilianok/my-portfolio-api)
 
 ## Hosting
 
@@ -27,4 +27,4 @@ My portfolio project contains a summary of my career as a front end developer an
 
 ## License
 
-`wbs-primer` is MIT licensed.
+`my-portfolio-app` is MIT licensed.
