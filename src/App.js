@@ -13,6 +13,7 @@ import ContactMe from './pages/ContactMe/ContactMe';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Footer from './components/Footer/Footer';
 
 const App = () => {
   return (
@@ -34,6 +35,7 @@ const App = () => {
             <Switch>
               <Route path="/" exact>
                 <Bio />
+                <Footer />
               </Route>
               <Route path="/lab">
                 <Lab />

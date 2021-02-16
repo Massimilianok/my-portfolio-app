@@ -73,7 +73,7 @@ const Bio = () => {
           </Badge>
         </div>
       </section>
-      <section className="section-bio shadow p-3">
+      <section className="section-bio shadow p-3 mb-5">
         <h2 className="section-bio-title mb-3 text-center">Soft Skills</h2>
         <ul className="section-bio-list">
           <li>Open-minded</li>

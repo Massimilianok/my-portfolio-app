@@ -6,6 +6,7 @@ import SectionLab from '../../components/SectionLab/SectionLab';
 import Loader from '../../components/Loader/Loader';
 import Sorting from '../../components/Filters/Sorting/Sorting';
 import Filtering from '../../components/Filters/Filtering/Filtering';
+import Footer from '../../components/Footer/Footer';
 
 const repoExclude = 'wbs-tajam';
 
@@ -85,6 +86,7 @@ const Lab = () => {
             <SectionLab key={repo.id} repo={repo} />
           )
         )}
+      {repoList && <Footer />}
     </>
   );
 };
