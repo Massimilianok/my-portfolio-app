@@ -12,8 +12,11 @@ const repoExclude = 'wbs-tajam';
 
 const Lab = () => {
   const [repoList, setRepoList] = useState();
-  const [repoListFiltered, setRepoListFiltered] = useState();
   const [loader, setLoader] = useState(false);
+  const [filterOption, setFilterOption] = useState({
+    label: 'All repository',
+    name: 'all',
+  });
 
   useEffect(() => {
     setLoader(true);
@@ -25,7 +28,6 @@ const Lab = () => {
       })
       .then((data) => {
         setRepoList(data);
-        setRepoListFiltered(data);
         setLoader(false);
       })
       .catch((err) => console.log(err));
@@ -42,25 +44,11 @@ const Lab = () => {
   };
 
   const handleSortSelection = (option) => {
-    setRepoListFiltered(
-      repoListFiltered.slice().sort((a, b) => sortBy(a, b, option.value))
-    );
-  };
-
-  const filterBy = (option) => {
-    const repoUpdate = repoList.filter((repo) => {
-      // If select all option
-      if (option.name) {
-        return repo;
-      } else {
-        return repo[option.type].includes(option.value);
-      }
-    });
-    return repoUpdate;
+    setRepoList(repoList.slice().sort((a, b) => sortBy(a, b, option.value)));
   };
 
   const handleFilterSelection = (option) => {
-    setRepoListFiltered(filterBy(option));
+    setFilterOption(option);
   };
 
   return (
@@ -80,12 +68,18 @@ const Lab = () => {
       </Row>
 
       {loader && <Loader />}
-      {repoListFiltered &&
-        repoListFiltered.map((repo) =>
-          repoExclude.includes(repo.name) ? null : (
-            <SectionLab key={repo.id} repo={repo} />
+      {repoList &&
+        repoList
+          .filter((repo) =>
+            filterOption.name
+              ? repo
+              : repo[filterOption.type].includes(filterOption.value)
           )
-        )}
+          .map((repo) =>
+            repoExclude.includes(repo.name) ? null : (
+              <SectionLab key={repo.id} repo={repo} />
+            )
+          )}
       {repoList && <Footer />}
     </>
   );
