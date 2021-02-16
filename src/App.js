@@ -1,32 +1,35 @@
 import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import Header from './components/Header/Header';
-import Nav from './components/Nav/Nav';
-import Navbar from './components/Navbar/Navbar';
-import NavbarDesktop from './components/Navbar/NavbarDesktop';
+import NavPortfolio from './components/NavPortfolio/NavPortfolio';
+import NavbarPortfolio from './components/NavbarPortfolio/NavbarPortfolio';
+import NavbarDesktop from './components/NavbarPortfolio/NavbarDesktop';
 import Logo from './components/Logo/Logo';
 import SocialIcons from './components/SocialIcons/SocialIcons';
 import Main from './components/Main/Main';
 import Bio from './pages/Bio/Bio';
 import Lab from './pages/Lab/Lab';
 import ContactMe from './pages/ContactMe/ContactMe';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 const App = () => {
   return (
-    <div className="container-fluid">
-      <div className="row">
-        <div className="col-12 col-lg-5 px-0">
+    <Container fluid>
+      <Row>
+        <Col xs={12} lg={5} className="px-0">
           <Header>
             <div className="d-lg-flex justify-content-lg-center align-items-lg-center">
               <Logo />
               <NavbarDesktop>
-                <Nav />
+                <NavPortfolio />
               </NavbarDesktop>
             </div>
             <SocialIcons />
           </Header>
-        </div>
-        <div className="col-12 col-lg-7 pe-lg-0">
+        </Col>
+        <Col xs={12} lg={7} className="pr-lg-0">
           <Main>
             <Switch>
               <Route path="/" exact>
@@ -41,12 +44,12 @@ const App = () => {
               <Redirect to="/" />
             </Switch>
           </Main>
-        </div>
-      </div>
-      <Navbar>
-        <Nav />
-      </Navbar>
-    </div>
+        </Col>
+      </Row>
+      <NavbarPortfolio>
+        <NavPortfolio />
+      </NavbarPortfolio>
+    </Container>
   );
 };
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import './Bio.css';
+import Badge from 'react-bootstrap/Badge';
 
 const Bio = () => {
   return (
@@ -8,15 +9,25 @@ const Bio = () => {
         <h2 className="section-bio-title mb-3 text-center">About me</h2>
         <ul className="section-bio-list">
           <li>
-            Three years of hands-on experience efficiently coding of websites
-            and WebApp.
+            I graduated in accounting and programming in Italy (High school
+            diploma).
           </li>
           <li>
             I got the first job thanks to self-taught study and training
             courses.
           </li>
           <li>
-            I graduated in accounting and programming (High school diploma).
+            Three years of hands-on experience efficiently coding of websites in
+            Italy.
+          </li>
+          <li>
+            I recently moved to Hamburg to look for new training opportunities
+            and new job challenges.
+          </li>
+          <li>
+            Right now I am following a Bootcamp at the WBS Coding School in
+            Berlin to learn new technologies and more modern web development
+            techniques.
           </li>
           <li>
             I still consider myself a junior professional, but I am constantly
@@ -33,21 +44,33 @@ const Bio = () => {
       <section className="section-bio shadow p-3 mb-5">
         <h2 className="section-bio-title mb-3 text-center">Tech Skills</h2>
         <div className="d-flex justify-content-start align-items-center flex-wrap">
-          <span className="badge rounded-pill section-bio-skill m-2">HTML</span>
-          <span className="badge rounded-pill section-bio-skill m-2">CSS</span>
-          <span className="badge rounded-pill section-bio-skill m-2">
+          <Badge pill className="section-bio-skill m-2">
+            HTML
+          </Badge>
+          <Badge pill className="section-bio-skill m-2">
+            CSS
+          </Badge>
+          <Badge pill className="section-bio-skill m-2">
             JavaScript
-          </span>
-          <span className="badge rounded-pill section-bio-skill m-2">
-            React
-          </span>
-          <span className="badge rounded-pill section-bio-skill m-2">Git</span>
-          <span className="badge rounded-pill section-bio-skill m-2">
+          </Badge>
+          <Badge pill className="section-bio-skill m-2">
+            Node.js
+          </Badge>
+          <Badge pill className="section-bio-skill m-2">
             Bootstrap
-          </span>
-          <span className="badge rounded-pill section-bio-skill m-2">
-            webpack
-          </span>
+          </Badge>
+          <Badge pill className="section-bio-skill m-2">
+            React
+          </Badge>
+          <Badge pill className="section-bio-skill m-2">
+            Express.js
+          </Badge>
+          <Badge pill className="section-bio-skill m-2">
+            Git
+          </Badge>
+          <Badge pill className="section-bio-skill m-2">
+            Webpack
+          </Badge>
         </div>
       </section>
       <section className="section-bio shadow p-3">

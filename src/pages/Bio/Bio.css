@@ -13,6 +13,7 @@
 
 .section-bio-skill {
   background-color: var(--secondary-color);
+  color: var(--light-color);
 }
 
 /* Large devices (large desktops, 992px and up) */

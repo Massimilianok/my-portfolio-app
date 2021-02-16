@@ -1,7 +1,7 @@
 import React from 'react';
-import './Navbar.css';
+import './NavbarPortfolio.css';
 
-const Navbar = ({ children }) => {
+const NavbarPortfolio = ({ children }) => {
   window.onscroll = () => {
     const navMobile = document.getElementById('navbarMobile');
     window.scrollY !== 0
@@ -19,4 +19,4 @@ const Navbar = ({ children }) => {
   );
 }
 
-export default Navbar;
+export default NavbarPortfolio;

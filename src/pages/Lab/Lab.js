@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './Lab.css';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import SectionLab from '../../components/SectionLab/SectionLab';
 import Loader from '../../components/Loader/Loader';
 import Sorting from '../../components/Filters/Sorting/Sorting';
@@ -62,19 +64,19 @@ const Lab = () => {
 
   return (
     <>
-      <div className="lab-page-filters row">
-        <div className="col-6">
+      <Row className="lab-page-filters">
+        <Col xs={6}>
           {repoList && <Sorting onChangeSelect={handleSortSelection} />}
-        </div>
-        <div className="col-6">
+        </Col>
+        <Col xs={6}>
           {repoList && (
             <Filtering
               repoList={repoList}
               onChangeSelect={handleFilterSelection}
             />
           )}
-        </div>
-      </div>
+        </Col>
+      </Row>
 
       {loader && <Loader />}
       {repoListFiltered &&
