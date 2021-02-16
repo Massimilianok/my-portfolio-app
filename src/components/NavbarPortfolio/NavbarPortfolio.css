@@ -2,22 +2,15 @@
   position: fixed;
   bottom: 0;
   left: 0;
-  background: transparent;
-  padding-top: 1.5rem;
+  background: #fff;
+  padding-top: 1rem;
   width: 100%;
   box-shadow: none;
-  transition: box-shadow 0.3s ease-in-out, background 0.3s ease-in-out;
+  transition: box-shadow 0.3s ease-in-out;
 }
 
 .navbar-portfolio-scroll {
-  background: linear-gradient(
-    to top,
-    #fff 30%,
-    rgba(255, 255, 255, 0.7) 60%,
-    rgba(255, 255, 255, 0.5) 90%,
-    rgba(0, 0, 0, 0.1) 95%
-  );
-  box-shadow: 0 -3px 10px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 -3px 10px 4px rgba(0, 0, 0, 0.4);
 }
 
 /* Large devices (large desktops, 992px and up) */
@@ -26,5 +19,6 @@
     position: static;
     height: 80%;
     width: auto;
+    background: transparent;
   }
 }
