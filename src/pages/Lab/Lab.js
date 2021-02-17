@@ -19,19 +19,22 @@ const Lab = () => {
   });
 
   useEffect(() => {
+    fetchRepos(process.env.REACT_APP_URL_API);
+  }, []);
+
+  const fetchRepos = async (url) => {
     setLoader(true);
-    fetch(process.env.REACT_APP_URL_API)
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
-      })
-      .then((data) => {
+    try {
+      const res = await fetch(url);
+      if (res.ok) {
+        const data = await res.json();
         setRepoList(data);
         setLoader(false);
-      })
-      .catch((err) => console.log(err));
-  }, []);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   const sortBy = (a, b, name) => {
     // if property value is null replace it
