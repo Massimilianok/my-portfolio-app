@@ -7,12 +7,14 @@ import Loader from '../../components/Loader/Loader';
 import Sorting from '../../components/Filters/Sorting/Sorting';
 import Filtering from '../../components/Filters/Filtering/Filtering';
 import Footer from '../../components/Footer/Footer';
+import AlertPortfolio from '../../components/AlertPortfolio/AlertPortfolio';
 
 const repoExclude = 'wbs-tajam';
 
 const Lab = () => {
   const [repoList, setRepoList] = useState();
   const [loader, setLoader] = useState(false);
+  const [alert, setAlert] = useState({ show: false, message: '' });
   const [filterOption, setFilterOption] = useState({
     label: 'All repository',
     name: 'all',
@@ -30,9 +32,14 @@ const Lab = () => {
         const data = await res.json();
         setRepoList(data);
         setLoader(false);
+      } else {
+        throw new Error(
+          'There are problems loading projects, please try again later.'
+        );
       }
     } catch (err) {
-      console.log(err);
+      setLoader(false);
+      setAlert({ show: true, message: err.message });
     }
   };
 
@@ -54,23 +61,34 @@ const Lab = () => {
     setFilterOption(option);
   };
 
+  const handleCloseAlert = () => {
+    setAlert({ show: false, message: '' });
+  };
+
   return (
     <>
-      <Row className="lab-page-filters">
-        <Col xs={6}>
-          {repoList && <Sorting onChangeSelect={handleSortSelection} />}
-        </Col>
-        <Col xs={6}>
-          {repoList && (
+      {loader && <Loader />}
+      {alert.show && (
+        <AlertPortfolio
+          variant="danger"
+          {...alert}
+          onCloseAlert={handleCloseAlert}
+        />
+      )}
+      {repoList && (
+        <Row className="lab-page-filters">
+          <Col xs={6}>
+            <Sorting onChangeSelect={handleSortSelection} />
+          </Col>
+          <Col xs={6}>
             <Filtering
               repoList={repoList}
               onChangeSelect={handleFilterSelection}
             />
-          )}
-        </Col>
-      </Row>
+          </Col>
+        </Row>
+      )}
 
-      {loader && <Loader />}
       {repoList &&
         repoList
           .filter((repo) =>
