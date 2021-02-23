@@ -13,6 +13,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 16px;
+  color: var(--dark-color);
 }
 
 code {
@@ -34,6 +35,14 @@ a:hover {
 button:focus,
 button:hover {
   outline: none;
+}
+
+input:focus {
+  box-shadow: 0 0 4px 1px var(--secondary-color) !important;
+}
+
+textarea:focus {
+  box-shadow: 0 0 4px 1px var(--secondary-color) !important;
 }
 
 /* Large devices (large desktops, 992px and up) */

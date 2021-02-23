@@ -81,6 +81,8 @@ const Bio = () => {
           <li>Committed</li>
           <li>Team player</li>
           <li>Cross-cultural skills</li>
+          <li>Problem solving</li>
+          <li>Passionate coder </li>
         </ul>
       </section>
     </>
