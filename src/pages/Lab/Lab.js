@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import './Lab.css';
+import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import SectionLab from '../../components/SectionLab/SectionLab';
 import Loader from '../../components/Loader/Loader';
 import Sorting from '../../components/Filters/Sorting/Sorting';
 import Filtering from '../../components/Filters/Filtering/Filtering';
-import Footer from '../../components/Footer/Footer';
 import AlertPortfolio from '../../components/AlertPortfolio/AlertPortfolio';
 
 const repoExclude = 'wbs-tajam';
@@ -73,6 +73,8 @@ const Lab = () => {
           variant="danger"
           {...alert}
           onCloseAlert={handleCloseAlert}
+          icon={faExclamationCircle}
+          dismissible={false}
         />
       )}
       {repoList && (
@@ -101,7 +103,6 @@ const Lab = () => {
               <SectionLab key={repo.id} repo={repo} />
             )
           )}
-      {repoList && <Footer />}
     </>
   );
 };

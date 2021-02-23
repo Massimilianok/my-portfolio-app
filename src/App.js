@@ -35,7 +35,6 @@ const App = () => {
             <Switch>
               <Route path="/" exact>
                 <Bio />
-                <Footer />
               </Route>
               <Route path="/lab">
                 <Lab />
@@ -45,6 +44,7 @@ const App = () => {
               </Route>
               <Redirect to="/" />
             </Switch>
+            <Footer />
           </Main>
         </Col>
       </Row>
