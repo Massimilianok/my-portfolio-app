@@ -21,7 +21,7 @@ const Lab = () => {
   });
 
   useEffect(() => {
-    fetchRepos(process.env.REACT_APP_URL_API);
+    fetchRepos(process.env.REACT_APP_URL_API + '/repos');
   }, []);
 
   const fetchRepos = async (url) => {

@@ -49,11 +49,31 @@ const ContactMe = () => {
     e.preventDefault();
     // Check if user fills all fields
     if (form.current.checkValidity()) {
-      console.log(formData);
-      setSentAlert(true);
-      initFormState();
+      postFormData(process.env.REACT_APP_URL_API + '/send', formData);
     } else {
       setValidated(true);
+    }
+  };
+
+  const postFormData = async (url, data) => {
+    try {
+      const res = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+      if (res.ok) {
+        setSentAlert(true);
+        initFormState();
+      } else {
+        throw new Error(
+          'There are problems to send email, please try again later.'
+        );
+      }
+    } catch (err) {
+      console.log(err);
     }
   };
 
