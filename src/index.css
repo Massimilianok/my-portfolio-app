@@ -13,6 +13,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 16px;
+  color: var(--dark-color);
 }
 
 code {
@@ -25,8 +26,10 @@ a {
   color: var(--primary-color);
 }
 
-a:focus {
+a:focus,
+a:hover {
   outline: none;
+  text-decoration: none;
 }
 
 button:focus,

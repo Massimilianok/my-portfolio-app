@@ -1,12 +1,59 @@
-.contact-page {
-  margin-top: 20%;
-  color: var(--secondary-color);
-  padding: 3rem;
+.form-portfolio {
+  width: 100%;
   border-radius: 0.8rem;
-  background-color: var(--dark-color);
 }
 
-.contact-page h2 {
-  color: var(--light-color);
+.form-portfolio-icon {
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+  color: var(--secondary-color);
 }
 
+.form-label-icon {
+  color: var(--secondary-color);
+}
+
+.form-label > span {
+  margin-left: 0.5rem;
+}
+
+.form-input-filed:focus,
+.form-input-filed:hover {
+  box-shadow: 0 0 4px 1px var(--secondary-color) !important;
+  background-color: var(--light-color) !important;
+  color: var(--dark-color) !important;
+}
+
+.form-button {
+  background-color: var(--secondary-color);
+  border: none;
+}
+
+.form-button:focus,
+.form-button:hover {
+  box-shadow: 0 0 4px 1px var(--secondary-color) !important;
+  background-color: var(--light-color) !important;
+  color: var(--dark-color) !important;
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .form-portfolio {
+    width: 80%;
+  }
+}
+
+/* Large devices (large desktops, 992px and up) */
+@media (min-width: 992px) {
+  .form-portfolio {
+    width: 70%;
+  }
+
+  .form-portfolio-icon {
+    font-size: 2rem;
+  }
+
+  .form-label-icon {
+    font-size: 1.2rem;
+  }
+}

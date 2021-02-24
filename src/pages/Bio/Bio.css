@@ -13,11 +13,12 @@
 
 .section-bio-skill {
   background-color: var(--secondary-color);
+  color: var(--light-color);
 }
 
 /* Large devices (large desktops, 992px and up) */
 @media (min-width: 992px) {
   .section-bio {
-    width: 70%;
+    width: 80%;
   }
 }

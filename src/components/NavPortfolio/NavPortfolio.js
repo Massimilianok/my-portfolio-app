@@ -6,9 +6,9 @@ import {
   faFlask,
   faEnvelopeOpenText,
 } from '@fortawesome/free-solid-svg-icons';
-import './Nav.css';
+import './NavPortfolio.css';
 
-const Nav = () => {
+const NavPortfolio = () => {
   return (
     <nav className="nav-portfolio d-flex justify-content-around align-items-center flex-lg-column justify-content-lg-around align-items-lg-start">
       <NavLink
@@ -52,4 +52,4 @@ const Nav = () => {
   );
 };
 
-export default Nav;
+export default NavPortfolio;

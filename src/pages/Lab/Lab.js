@@ -1,32 +1,47 @@
 import React, { useEffect, useState } from 'react';
 import './Lab.css';
+import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import SectionLab from '../../components/SectionLab/SectionLab';
 import Loader from '../../components/Loader/Loader';
 import Sorting from '../../components/Filters/Sorting/Sorting';
 import Filtering from '../../components/Filters/Filtering/Filtering';
+import AlertPortfolio from '../../components/AlertPortfolio/AlertPortfolio';
 
 const repoExclude = 'wbs-tajam';
 
 const Lab = () => {
   const [repoList, setRepoList] = useState();
-  const [repoListFiltered, setRepoListFiltered] = useState();
   const [loader, setLoader] = useState(false);
+  const [alert, setAlert] = useState({ show: false, message: '' });
+  const [filterOption, setFilterOption] = useState({
+    label: 'All repository',
+    name: 'all',
+  });
 
   useEffect(() => {
-    setLoader(true);
-    fetch(process.env.REACT_APP_URL_API)
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
-      })
-      .then((data) => {
-        setRepoList(data);
-        setRepoListFiltered(data);
-        setLoader(false);
-      })
-      .catch((err) => console.log(err));
+    fetchRepos(process.env.REACT_APP_URL_API + '/repos');
   }, []);
+
+  const fetchRepos = async (url) => {
+    setLoader(true);
+    try {
+      const res = await fetch(url);
+      if (res.ok) {
+        const data = await res.json();
+        setRepoList(data);
+        setLoader(false);
+      } else {
+        throw new Error(
+          'There are problems loading projects, please try again later.'
+        );
+      }
+    } catch (err) {
+      setLoader(false);
+      setAlert({ show: true, message: err.message });
+    }
+  };
 
   const sortBy = (a, b, name) => {
     // if property value is null replace it
@@ -39,50 +54,55 @@ const Lab = () => {
   };
 
   const handleSortSelection = (option) => {
-    setRepoListFiltered(
-      repoListFiltered.slice().sort((a, b) => sortBy(a, b, option.value))
-    );
-  };
-
-  const filterBy = (option) => {
-    const repoUpdate = repoList.filter((repo) => {
-      // If select all option
-      if (option.name) {
-        return repo;
-      } else {
-        return repo[option.type].includes(option.value);
-      }
-    });
-    return repoUpdate;
+    setRepoList(repoList.slice().sort((a, b) => sortBy(a, b, option.value)));
   };
 
   const handleFilterSelection = (option) => {
-    setRepoListFiltered(filterBy(option));
+    setFilterOption(option);
+  };
+
+  const handleCloseAlert = () => {
+    setAlert({ show: false, message: '' });
   };
 
   return (
     <>
-      <div className="lab-page-filters row">
-        <div className="col-6">
-          {repoList && <Sorting onChangeSelect={handleSortSelection} />}
-        </div>
-        <div className="col-6">
-          {repoList && (
+      {loader && <Loader />}
+      {alert.show && (
+        <AlertPortfolio
+          variant="danger"
+          {...alert}
+          onCloseAlert={handleCloseAlert}
+          icon={faExclamationCircle}
+          dismissible={false}
+        />
+      )}
+      {repoList && (
+        <Row className="lab-page-filters">
+          <Col xs={6}>
+            <Sorting onChangeSelect={handleSortSelection} />
+          </Col>
+          <Col xs={6}>
             <Filtering
               repoList={repoList}
               onChangeSelect={handleFilterSelection}
             />
-          )}
-        </div>
-      </div>
+          </Col>
+        </Row>
+      )}
 
-      {loader && <Loader />}
-      {repoListFiltered &&
-        repoListFiltered.map((repo) =>
-          repoExclude.includes(repo.name) ? null : (
-            <SectionLab key={repo.id} repo={repo} />
+      {repoList &&
+        repoList
+          .filter((repo) =>
+            filterOption.name
+              ? repo
+              : repo[filterOption.type].includes(filterOption.value)
           )
-        )}
+          .map((repo) =>
+            repoExclude.includes(repo.name) ? null : (
+              <SectionLab key={repo.id} repo={repo} />
+            )
+          )}
     </>
   );
 };

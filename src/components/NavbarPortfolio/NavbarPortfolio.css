@@ -1,0 +1,24 @@
+.navbar-portfolio {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background: #fff;
+  padding-top: 1rem;
+  width: 100%;
+  box-shadow: none;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.navbar-portfolio-scroll {
+  box-shadow: 0 -3px 10px 4px rgba(0, 0, 0, 0.4);
+}
+
+/* Large devices (large desktops, 992px and up) */
+@media (min-width: 992px) {
+  .navbar-portfolio {
+    position: static;
+    height: 80%;
+    width: auto;
+    background: transparent;
+  }
+}

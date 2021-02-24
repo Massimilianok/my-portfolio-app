@@ -1,8 +1,17 @@
-import React from 'react';
-import logo from '../../logo.jpg';
+import React, { useEffect, useState } from 'react';
+import storageRef from '../../firebase';
 import './Logo.css';
 
 const Logo = () => {
+  const [logo, setLogo] = useState();
+
+  useEffect(() => {
+    storageRef
+      .child('profile-photo.jpg')
+      .getDownloadURL()
+      .then((url) => setLogo(url));
+  }, []);
+
   return (
     <div className="logo-box shadow">
       <img src={logo} alt="Logo" className="logo" />
@@ -11,6 +20,6 @@ const Logo = () => {
       </div>
     </div>
   );
-}
+};
 
 export default Logo;
