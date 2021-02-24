@@ -93,7 +93,6 @@ const ContactMe = () => {
             </Form.Label>
             <Form.Control
               required
-              autoFocus
               type="text"
               className="form-input-filed"
               name="fullName"
