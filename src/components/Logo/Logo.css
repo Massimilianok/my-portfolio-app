@@ -1,6 +1,9 @@
 .logo-box {
-  height: auto;
+  height: 4rem;
   width: 4rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   border-radius: 50%;
   position: relative;
 }
@@ -33,6 +36,7 @@
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
   .logo-box {
+    height: 6rem;
     width: 6rem;
   }
 }
@@ -40,6 +44,7 @@
 /* Large devices (large desktops, 992px and up) */
 @media (min-width: 992px) {
   .logo-box {
+    height: 10rem;
     width: 10rem;
   }
 
@@ -51,6 +56,7 @@
 /* X-Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
   .logo-box {
+    height: 15rem;
     width: 15rem;
   }
 

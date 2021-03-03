@@ -9,6 +9,6 @@ const Main = ({ children }) => {
       </div>
     </main>
   );
-}
+};
 
 export default Main;

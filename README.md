@@ -15,15 +15,16 @@ My portfolio project contains a summary of my career as a front end developer an
 - create-react-app
 - react-select
 - react-router-dom
+- react-bootstrap
 - bootstrap
 
-## API
+## REST API
 
 - [`my-portfolio-api`](https://github.com/Massimilianok/my-portfolio-api)
 
 ## Hosting
 
-- Google Firebase
+- Netlify
 
 ## License
 

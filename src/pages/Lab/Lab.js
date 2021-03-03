@@ -9,8 +9,6 @@ import Sorting from '../../components/Filters/Sorting/Sorting';
 import Filtering from '../../components/Filters/Filtering/Filtering';
 import AlertPortfolio from '../../components/AlertPortfolio/AlertPortfolio';
 
-const repoExclude = 'wbs-tajam';
-
 const Lab = () => {
   const [repoList, setRepoList] = useState();
   const [loader, setLoader] = useState(false);
@@ -21,21 +19,19 @@ const Lab = () => {
   });
 
   useEffect(() => {
-    fetchRepos(process.env.REACT_APP_URL_API + '/repos');
+    fetchRepos(process.env.REACT_APP_PORTFOLIO_API_URL + '/repos');
   }, []);
 
   const fetchRepos = async (url) => {
     setLoader(true);
     try {
       const res = await fetch(url);
+      const data = await res.json();
       if (res.ok) {
-        const data = await res.json();
-        setRepoList(data);
+        setRepoList(data.data);
         setLoader(false);
       } else {
-        throw new Error(
-          'There are problems loading projects, please try again later.'
-        );
+        throw new Error(data.error);
       }
     } catch (err) {
       setLoader(false);
@@ -98,11 +94,7 @@ const Lab = () => {
               ? repo
               : repo[filterOption.type].includes(filterOption.value)
           )
-          .map((repo) =>
-            repoExclude.includes(repo.name) ? null : (
-              <SectionLab key={repo.id} repo={repo} />
-            )
-          )}
+          .map((repo) => <SectionLab key={repo.id} repo={repo} />)}
     </>
   );
 };

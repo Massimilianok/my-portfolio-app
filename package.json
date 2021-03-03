@@ -1,8 +1,8 @@
 {
   "author": "Massimiliano Rizzuto",
   "description": "Massimiliano Rizzuto Portfolio",
-  "name": "my-portfolio",
-  "version": "0.1.0",
+  "name": "my-portfolio-app",
+  "version": "0.3.0",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.34",
@@ -13,7 +13,6 @@
     "@testing-library/react": "^11.2.3",
     "@testing-library/user-event": "^12.6.0",
     "bootstrap": "^4.6.0",
-    "firebase": "^8.2.9",
     "react": "^17.0.1",
     "react-bootstrap": "^1.4.3",
     "react-dom": "^17.0.1",
