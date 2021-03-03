@@ -14,6 +14,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Footer from './components/Footer/Footer';
+import RoleTitle from './components/RoleTitle/RoleTitle';
 
 const App = () => {
   return (
@@ -27,6 +28,7 @@ const App = () => {
                 <NavPortfolio />
               </NavbarDesktop>
             </div>
+            <RoleTitle view="d-none d-lg-block" />
             <SocialIcons />
           </Header>
         </Col>
@@ -34,6 +36,7 @@ const App = () => {
           <Main>
             <Switch>
               <Route path="/" exact>
+                <RoleTitle view="d-lg-none" />
                 <Bio />
               </Route>
               <Route path="/lab">
