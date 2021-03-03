@@ -21,21 +21,19 @@ const Lab = () => {
   });
 
   useEffect(() => {
-    fetchRepos(process.env.REACT_APP_URL_API + '/repos');
+    fetchRepos(process.env.REACT_APP_PORTFOLIO_API_URL + '/repos');
   }, []);
 
   const fetchRepos = async (url) => {
     setLoader(true);
     try {
       const res = await fetch(url);
+      const data = await res.json();
       if (res.ok) {
-        const data = await res.json();
-        setRepoList(data);
+        setRepoList(data.data);
         setLoader(false);
       } else {
-        throw new Error(
-          'There are problems loading projects, please try again later.'
-        );
+        throw new Error(data.error);
       }
     } catch (err) {
       setLoader(false);
