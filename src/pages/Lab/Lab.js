@@ -9,8 +9,6 @@ import Sorting from '../../components/Filters/Sorting/Sorting';
 import Filtering from '../../components/Filters/Filtering/Filtering';
 import AlertPortfolio from '../../components/AlertPortfolio/AlertPortfolio';
 
-const repoExclude = 'wbs-tajam';
-
 const Lab = () => {
   const [repoList, setRepoList] = useState();
   const [loader, setLoader] = useState(false);
@@ -96,11 +94,7 @@ const Lab = () => {
               ? repo
               : repo[filterOption.type].includes(filterOption.value)
           )
-          .map((repo) =>
-            repoExclude.includes(repo.name) ? null : (
-              <SectionLab key={repo.id} repo={repo} />
-            )
-          )}
+          .map((repo) => <SectionLab key={repo.id} repo={repo} />)}
     </>
   );
 };

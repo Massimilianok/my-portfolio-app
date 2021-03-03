@@ -6,43 +6,18 @@ const Bio = () => {
   return (
     <>
       <section className="section-bio shadow p-3 mb-5">
-        <h2 className="section-bio-title mb-3 text-center">About me</h2>
-        <ul className="section-bio-list">
-          <li>
-            I graduated in accounting and programming in Italy (High school
-            diploma).
-          </li>
-          <li>
-            I got the first job thanks to self-taught study and training
-            courses.
-          </li>
-          <li>
-            Three years of hands-on experience efficiently coding of websites in
-            Italy.
-          </li>
-          <li>
-            I recently moved to Hamburg to look for new training opportunities
-            and new job challenges.
-          </li>
-          <li>
-            Right now I am following a Bootcamp at the WBS Coding School in
-            Berlin to learn new technologies and more modern web development
-            techniques.
-          </li>
-          <li>
-            I still consider myself a junior professional, but I am constantly
-            seeking opportunities to learn new things and keep myself up to date
-            with industry trends and advancements.
-          </li>
-          <li>
-            Constantly learning, looking for the perfect and elegant solution
-            and curiosity are the three things that a team I join can benefit
-            from.
-          </li>
-        </ul>
+        <h2 className="section-bio-title mb-3 text-center py-3">About me</h2>
+        <p>
+          A detail-oriented Web Developer with three years of hands-on
+          experience efficiently coding websites. Constantly seeking learning
+          opportunities, following industry’s trends and advancements. I’ve
+          recently upskilled my knowledge in JavaScript, React, Node.js and
+          Express.js. Focus on elegant solutions and user’s needs and endless
+          curiosity - these are three things I can promise to my future team.
+        </p>
       </section>
       <section className="section-bio shadow p-3 mb-5">
-        <h2 className="section-bio-title mb-3 text-center">Tech Skills</h2>
+        <h2 className="section-bio-title mb-3 text-center py-3">Tech Skills</h2>
         <div className="d-flex justify-content-start align-items-center flex-wrap">
           <Badge pill className="section-bio-skill m-2">
             HTML
@@ -77,7 +52,7 @@ const Bio = () => {
         </div>
       </section>
       <section className="section-bio shadow p-3 mb-5">
-        <h2 className="section-bio-title mb-3 text-center">Soft Skills</h2>
+        <h2 className="section-bio-title mb-3 text-center py-3">Soft Skills</h2>
         <ul className="section-bio-list">
           <li>Open-minded</li>
           <li>Flexible</li>
