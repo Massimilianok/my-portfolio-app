@@ -69,6 +69,9 @@ const Bio = () => {
             Git
           </Badge>
           <Badge pill className="section-bio-skill m-2">
+            npm
+          </Badge>
+          <Badge pill className="section-bio-skill m-2">
             Webpack
           </Badge>
         </div>
